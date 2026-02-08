@@ -26,7 +26,7 @@ WORKDIR /app
 COPY --from=build /app/main.aot main.aot
 COPY celest.json .
 
-ENV PORT=8080
+ENV PORT=${PORT:-8080}
 EXPOSE $PORT
 ''');
 
@@ -38,7 +38,7 @@ WORKDIR /app
 COPY --chmod=755 main.exe .
 COPY celest.json .
 
-ENV PORT=8080
+ENV PORT=${PORT:-8080}
 EXPOSE $PORT
 ''';
 
@@ -58,7 +58,7 @@ COPY --from=build /app/main.aot main.aot
 COPY flutter_assets/ ./flutter_assets/
 COPY celest.json .
 
-ENV PORT=8080
+ENV PORT=${PORT:-8080}
 EXPOSE $PORT
 ''');
 
